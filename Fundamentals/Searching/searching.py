@@ -38,6 +38,8 @@ def binary_search(elt, lst):
 
 '''Example scripts for binary_search() below - uncomment to run
    (Uses python3 sorted() function for passed parameters)'''
+   
+# Note: python uses timesort (https://en.wikipedia.org/wiki/Timsort)
 
 # should return -1
 # print(binary_search(5, sorted([3,6,6,4,3,2,4,6])))
