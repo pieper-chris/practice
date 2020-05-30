@@ -2,76 +2,61 @@
 
 // Basic search algorithms and their complexities
 
-// Linear search (ints)
-// pass in the element (int) to be found and an int list to search in (can be unsorted)
-// returns index of 1st-found element to match 'elt', returns -1 if DNE
-int linear_search(int elt, int *arr){
-    int idx = 0;
-    int length = sizeof(arr);
-    while((idx<length) && (elt != arr[idx])){
-        idx += 1;
-    }
-    if (idx < length){
-        return idx;
-    }else{
-        return -1;
-    }
+// Bubble Sort
+int * bubble_sort(arr[]){
+    
 }
 
-// binary search (ints)
-// pass in the element (int) to be found and an int list to search in (must be unsorted)
-// returns index of 1st-found element to match 'elt', returns -1 if DNE
-
-int binary_search(int elt, int *arr){
-    int length = sizeof(arr);
-    int left = 0;
-    int right = (length - 1);
-    while(left < right){
-        int midpoint = (left + right) / 2;
-        if (elt > arr[midpoint]){
-            left = midpoint + 1;
-        } else {right = midpoint;}
-    }
-    if (elt == arr[left]){
-        return left;
-    } else{
-        return -1;
-    }
-}
+def bubble_sort(lst):
+    lst_len = len(lst)
+    if (lst_len < 2): return lst
+    for i in range(lst_len):
+        for j in range(lst_len - 1 - i):
+            if (lst[j] > lst[j+1]):
+                temp = lst[j]
+                lst[j] = lst[j+1]
+                lst[j+1] = temp
+    return lst
 
 
+// Insertion Sort
+def insertion_sort(lst):
+    lst_len = len(lst)
+    if (lst_len < 2): return lst
+    for right in range(1,lst_len):
+        left = 0
+        while(lst[right] > lst[left]): left +=1
+        temp = lst[right]
+        // linear search for placement
+        for k in range((right-left)):
+            lst[right-k] = lst[right-k-1]
+        lst[left] = temp
+    return lst
 
-int main(){
-    
-    /* Example scripts for linear_search() below */
-    
-    // should return -1
-    int *arr;
-    int lst1[] = {3,6,6,4,3,2,4,6};
-    arr = lst1;
-    printf("Index (linear search) : %d \n", linear_search(5, arr));
-    
-    // should return 2 ("third index", as 1st index is 0)
-    int lst2[] = {3,6,5,4,3,2,4,6};
-    arr = lst2;
-    printf("Index (linear search): %d \n", linear_search(5, arr));
-    
-    
-    
-    /* Example scripts for binary_search() below - using sorted lists*/
-    
-    // should return -1
-    int lst3[] = {3,6,6,9,11,12,54,86};
-    arr = lst3;
-    printf("Index (binary search): %d \n", binary_search(5, arr));
-    
-    // should return 4 ("5th index", as 1st index is 0)
-    int lst4[] = {1,2,3,4,5,6,7,8};
-    arr = lst4;
-    printf("Index (binary search): %d \n", binary_search(5, arr));
-    
-    
-    return 0;
-}
 
+
+/*-------------Script for bubble_sort()----------------------*/
+// 1-elt test
+print(bubble_sort([]))
+print(bubble_sort([9]))
+
+// Small list test
+print(bubble_sort([6,5,7,5,3,4,1]))
+
+# Larger tests...
+result = bubble_sort(random.sample(range(0, 500), 300))
+print(result[:10],"...",result[-10:])
+        
+
+/*-------------Script for insertion_sort()----------------------*/
+// 1-elt test
+print(insertion_sort([]))
+print(insertion_sort([9]))
+
+// Small list test
+print(insertion_sort([6,5,7,5,3,4,1]))
+
+// Larger tests...
+result = insertion_sort(random.sample(range(0, 500), 300))
+print(result[:10],"...",result[-10:])
 
