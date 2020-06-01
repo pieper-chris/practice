@@ -32,6 +32,7 @@ def insertion_sort(lst):
 
 
 '''-------------Script for bubble_sort()----------------------'''
+print("Bubble sorts:")
 # 1-elt test
 print(bubble_sort([]))
 print(bubble_sort([9]))
@@ -45,6 +46,7 @@ print(result[:10],"...",result[-10:])
         
 
 '''-------------Script for insertion_sort()----------------------'''
+print("Insertion Sorts:")
 # 1-elt test
 print(insertion_sort([]))
 print(insertion_sort([9]))
