@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Brief showing of basic computer systems idea #1 - Bits (sophmore-level course)
+
 typedef unsigned char *byte_ptr;
 
 void show_bytes(byte_ptr start, size_t len){
