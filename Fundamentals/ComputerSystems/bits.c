@@ -32,11 +32,16 @@ int main(){
     
     int shift_num = 7;
     int shifted = shift_num << 5;
-    printf("preshift: %d, postshift %d \n\n", shift_num, shifted);
+    printf("preshift (<<) : %d, postshift %d \n\n", shift_num, shifted);
     
+    // arithmetic right shift (different behavior for negative & positive)
     shift_num = -91;
     shifted = shift_num >> 2;
-    printf("preshift: %d, postshift %d \n\n", shift_num, shifted);
+    printf("preshift (>>) : %d, postshift %d \n\n", shift_num, shifted);
+    
+    shift_num = 91;
+    shifted = shift_num >> 2;
+    printf("preshift (>>) : %d, postshift %d \n\n", shift_num, shifted);
     
     
     int a = 7;
